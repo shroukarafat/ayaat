@@ -127,11 +127,31 @@ $start_date=$_POST['start_date'];
     {
     $start_aya = $id;
     $end_aya = ($start_aya+2);
+  $start_aya2 = $end_aya;
+  $end_aya2 =($start_aya2+2);
+  $start_aya3 = $end_aya2;
+  $end_aya3 =($start_aya3+2);
     echo "start aya id = ".$start_aya;
     ?>
     <br>
     <?php
      echo "end aya id = ".$end_aya;
+     ?>
+     <br>
+  <?php
+     echo "start aya 2 = ".$start_aya2;
+     ?>
+     <br>
+  <?php
+     echo "end aya 2= ".$end_aya2;
+     ?>
+     <?php
+     echo "start aya 3 = ".$start_aya2;
+     ?>
+     <br>
+  <?php
+     echo "end aya 3= ".$end_aya2;
+     
      }
 
 
