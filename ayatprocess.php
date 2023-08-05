@@ -24,8 +24,17 @@ if (isset($_POST["user_id"]) && $_POST["user_id"] == "per page")
 if(isset($_POST["submit"]))
 {
           $x=$_POST["input"];
-          $start="SELECT page FROM ayas ORDER BY id ASC LIMIT 1  ";
-          $end="SELECT page FROM ayas   ORDER BY id DESC LIMIT 1";
+          $id=$_POST['id'];
+          $start="SELECT page FROM ayas WHERE id='$id' ORDER BY id ASC LIMIT 1";
+          $end="SELECT page FROM ayas WHERE id ='$id' ORDER BY id ASC LIMIT 1";
+         $result = mysqli_query($conn,$start);
+              $page = mysqli_fetch_assoc($result);
+              print_r($page);
+                              echo'<br>';
+                  $resultt = mysqli_query($conn,$end);
+              $pagge = mysqli_fetch_assoc($resultt);
+                  echo'<br>';
+          
           $today = date('Y-m-d'); 
           for($i=1;$i<=$x;$i++){
               $start_aya=$start;
@@ -49,8 +58,19 @@ if(isset($_POST["submit"]))
         }
 if(isset($_POST["user_id"]) && $_POST["user_id"] == "per guz")
 {
-  $start='SELECT guz FROM ayas ORDER BY id ASC LIMIT 1 ';
-  $end='SELECT guz FROM ayas ORDER BY id DESC LIMIT 1 ';
+  
+  $id=$_POST['id'];
+    $start="SELECT guz FROM ayas  WHERE id ='$id' ORDER BY id DESC LIMIT 1";
+  $result = mysqli_query($conn,$start);
+    $page = mysqli_fetch_assoc($result);
+    print_r($page);
+  
+  
+                  echo'<br>';
+                  $end="SELECT guz FROM ayas WHERE id ='$id'  ORDER BY id DESC LIMIT 1 ";
+      $resultt = mysqli_query($conn,$end);
+  $pagge = mysqli_fetch_assoc($resultt);
+      echo'<br>';
   $today = date('Y-m-d'); 
   for($l=1;$l<=30;$l++){
       $start_aya=$start;
@@ -127,31 +147,11 @@ $start_date=$_POST['start_date'];
     {
     $start_aya = $id;
     $end_aya = ($start_aya+2);
-  $start_aya2 = $end_aya;
-  $end_aya2 =($start_aya2+2);
-  $start_aya3 = $end_aya2;
-  $end_aya3 =($start_aya3+2);
     echo "start aya id = ".$start_aya;
     ?>
     <br>
     <?php
      echo "end aya id = ".$end_aya;
-     ?>
-     <br>
-  <?php
-     echo "start aya 2 = ".$start_aya2;
-     ?>
-     <br>
-  <?php
-     echo "end aya 2= ".$end_aya2;
-     ?>
-     <?php
-     echo "start aya 3 = ".$start_aya2;
-     ?>
-     <br>
-  <?php
-     echo "end aya 3= ".$end_aya2;
-     
      }
 
 
